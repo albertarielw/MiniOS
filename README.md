@@ -1,1 +1,1 @@
-# NewbieOS
+# MiniOS
