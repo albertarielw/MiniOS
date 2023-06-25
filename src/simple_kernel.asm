@@ -22,4 +22,4 @@ print_char:
 done:
     ret
 
-hello_string db 'Hello World!, From MiniOS', 0
+hello_string db 'MiniOS says "Hello World!"', 0
