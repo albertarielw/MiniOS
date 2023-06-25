@@ -19,4 +19,4 @@ create_build_folder:
 	@mkdir -p build
 
 clean:
-	rm -f *.o *.img
+	rm -f $(BUILD)/*.o $(BUILD)/*.img
