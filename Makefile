@@ -1,13 +1,22 @@
 ASM = nasm
-BOOTSTRAP_FILE = bootstrap.asm
-KERNEL_FILE = simple_kernel.asm
 
-build: $(BOOTSTRAP_FILE) $(KERNEL_FILE)
-	$(ASM) -f bin $(BOOTSTRAP_FILE) -o bootstrap.o
-	$(ASM) -f bin $(KERNEL_FILE) -o kernel.o
-	dd if=bootstrap.o of=kernel.img
-	dd seek=1 conv=sync if=kernel.o of=kernel.img bs=512
-	qemu-system-x86_64 -s kernel.img
+SRC = src
+BUILD = build
+
+BOOTSTRAP_FILE = $(SRC)/bootstrap.asm
+KERNEL_FILE = $(SRC)/simple_kernel.asm
+
+.PHONY: all build clean
+
+build: $(BOOTSTRAP_FILE) $(KERNEL_FILE) create_build_folder
+	$(ASM) -f bin $(BOOTSTRAP_FILE) -o $(BUILD)/bootstrap.o
+	$(ASM) -f bin $(KERNEL_FILE) -o $(BUILD)/kernel.o
+	dd if=$(BUILD)/bootstrap.o of=$(BUILD)/kernel.img
+	dd seek=1 conv=sync if=$(BUILD)/kernel.o of=$(BUILD)/kernel.img bs=512
+	qemu-system-x86_64 -s $(BUILD)/kernel.img
+
+create_build_folder:
+	@mkdir -p build
 
 clean:
-	rm -f *.o
+	rm -f *.o *.img
