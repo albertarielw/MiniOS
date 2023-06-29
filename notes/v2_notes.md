@@ -73,10 +73,28 @@ segment descriptor
     - Granularity (G Flag): 0 -> limit field is in 10 bytes 1 -> limit field in 4KB
     - Segment Type Falg (S Flag): 0 -> system, 1 -> application
     - Type field: 0 -> data 1 -> code
+    - if code segment:
+        - read-enabled (R flag): 1 execute and read 0 execut cannot read
+        - conforming (C flag): 1 less privileged can access 0 less privileged cannot access
+    - if data segment:
+        - expansion-direction (E flag)
+        - write-enabled (W flag)
+    - Privilege level
+    - Presence in memory (whether it is loaded into the memory)
+    - Other flags:
+        1. if code segment: default operation flag (D Flag)
+           if stack segment: default stack pointer size (B Flag) -> 1: stack pointer is 32 bits and stored in ESP, 0: 16 bits, SP
+        2. L flag: 
+
+special register GDTR stores base physical address 
 
 segment type
 - application segment: data n code
 - system segment
+
+LDT (GDT but local): can define multiple, each is specific to a process (though cna be shared) -> use lldt instruction
+
+7. x86 run-time stack
 
 
 
