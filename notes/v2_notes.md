@@ -94,7 +94,92 @@ segment type
 
 LDT (GDT but local): can define multiple, each is specific to a process (though cna be shared) -> use lldt instruction
 
-7. x86 run-time stack
+7. x86 run-time 
 
+7.1 Stack (grows downwards in x86 why though?):
 
+1 stack frame = 1 function
+EBP: stack frame base pointer -> starting mem address of the current stack
+ESP: stack pointer -> mem address of top of the stack
 
+push: decrement ESP 
+pop: increment ESP
+
+note: some prog language (esp derived from Algol) differentiate function (returns value) from procedure (does not return value)
+
+7.1.1 Calling Convention (PLEASE READ IN MORE DETAILS)
+
+A caller B callee
+
+A pass params to B = push params (push in a reversed order) -> push to stack frame of A, so params of B will be in stack frame of A
+push current value of EIP (returning memory address) -> value of EIP is right after call to B
+x86 instruction call can be used to jump to B's code
+
+A:
+; A’s Code Before Calling B
+
+push p3
+push p2
+push p1
+call B
+mov ecx, eax
+
+; Rest of A’s Code
+
+we also need to save value of esp
+
+B:
+push ebp
+mov ebp, esp
+
+; Rest of B’s Code
+
+B can push local variable onto the stack. However, pushing new items change ESP but EBP remains the same 
+
+1 B:
+2 ; Creating new Stack Frame
+3 push ebp
+4 mov ebp, esp
+5
+6 push 1 ; Pushing a local variable
+7 push 2 ; Pushing another local variable
+8
+9 ; Reading the content
+10 ; of memory address EBP + 4
+11 ; which stores the value of
+12 ; the parameters p1 and moving
+13 ; it to eax.
+14 mov eax, [ebp + 8]
+15
+16 ; Reading the value of the
+17 ; first local varaible and
+18 ; moving it to ebx.
+19 mov ebx, [ebp - 4]
+20
+21 ; Rest of B’s Code
+
+read more
+
+7.1.3 growth direction of run-time stack: downward -> earlier is placed in larger memory address (e.g. 10000), later smaller
+
+mem addresses
+20d
+16d
+12d
+...
+0d
+
+7.1.4 grow downward vs upward
+
+expansion-direction flag 0 -> downward, 1 -> upward
+
+by default downward but why upward?
+
+e.g. 
+
+8. Interrupts
+
+Interrupts vs Exceptions
+
+Interrupt Descriptor Table (IDT)
+IDTR (similar to GDTR)
