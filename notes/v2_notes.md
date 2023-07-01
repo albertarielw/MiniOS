@@ -1,4 +1,4 @@
-Basic x86 Architecture
+# Basic x86 Architecture
 
 1. Processor as a library and framework
 library: provides instructions to call
@@ -197,3 +197,15 @@ however, we can disable interrut using x96 instruction cli
 interrupt number -> IDT entry index 0 - 21 used by x86, 22 - 31 reserved, 32 - 255 system programmers can use
 
 IDTR (similar to GDTR): lidt means load IDT
+
+# Progenitor
+
+1. Intro
+
+Write OS in 32 bit protected mode. In x86 to switch from real to protected, 
+the GDT should be initialized and loaded up
+
+in 32 bit protected mode, can use C compiler and runs C code
+but cannot use BIOS services (e.g. use BIOS to print on screen) -> use VGA to print to memory
+
+our progenitor has bootloader + kernel with 2 parts: starter written in assembly which loads and initialize GDT, convert real mode -> protected mode, prepare for our C kernel + main kernel
