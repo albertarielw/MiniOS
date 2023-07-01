@@ -122,11 +122,9 @@ push p3
 push p2
 push p1
 call B
-mov ecx, eax
-
 ; Rest of A’s Code
 
-we also need to save value of esp
+the processor will start executing B -> need to set up stack frame for B -> this is done by moving the value of ESP (on top op stack) to EBP so it points to the new starting memory of the new stack frame -> but we need to save the old value of EBP so push EBP to the stack first
 
 B:
 push ebp
@@ -134,31 +132,38 @@ mov ebp, esp
 
 ; Rest of B’s Code
 
-B can push local variable onto the stack. However, pushing new items change ESP but EBP remains the same 
+B can push local variable onto the stack. However, pushing new items change ESP but EBP remains the same -> we can use EBP to access older values without popping the stack
 
-1 B:
-2 ; Creating new Stack Frame
-3 push ebp
-4 mov ebp, esp
-5
-6 push 1 ; Pushing a local variable
-7 push 2 ; Pushing another local variable
-8
-9 ; Reading the content
-10 ; of memory address EBP + 4
-11 ; which stores the value of
-12 ; the parameters p1 and moving
-13 ; it to eax.
-14 mov eax, [ebp + 8]
-15
-16 ; Reading the value of the
-17 ; first local varaible and
-18 ; moving it to ebx.
-19 mov ebx, [ebp - 4]
-20
-21 ; Rest of B’s Code
+e.g.
+B:
+; Creating new Stack Frame
+push ebp
+mov ebp, esp
 
-read more
+push 1 ; Pushing a local variable
+push 2 ; Pushing another local variable
+
+; Reading the content
+; of memory address EBP + 4
+; which stores the value of
+; the parameters p1 and moving
+; it to eax.
+mov eax, [ebp + 8]
+
+; Reading the value of the
+; first local varaible and
+; moving it to ebx.
+mov ebx, [ebp - 4]
+
+note: EBP -> memory address [EBP] -> value stored in that address
+
+; Rest of B’s Code
+
+when B finishes and needs to return a value, this value should be stored in EAX
+B then deallocate its own stack frame
+load returning address to EIP and resume A -> this can be done using the x86 instruction ret
+
+A gains back control -> can deallocate (pop) B params
 
 7.1.3 growth direction of run-time stack: downward -> earlier is placed in larger memory address (e.g. 10000), later smaller
 
@@ -170,16 +175,25 @@ mem addresses
 0d
 
 7.1.4 grow downward vs upward
-
+ 
 expansion-direction flag 0 -> downward, 1 -> upward
 
 by default downward but why upward?
 
-e.g. 
+problem with downward -> resizing requires updating of memory addresses 
 
 8. Interrupts
 
 Interrupts vs Exceptions
 
-Interrupt Descriptor Table (IDT)
-IDTR (similar to GDTR)
+E.g. interrupt: system timer for context switch, press keyboard (device driver), software interrupt -> system call
+
+Interrupt Descriptor Table (IDT) 
+- Entry to IDT is a gate descriptor each one is 8 bytes, can contain up to 256 gate descriptors
+- 3 types: task, interrupt, trap gates
+- interrupt vs trap: interrupt cannot be interrupted except by non-maskable interrupts, trap gate can be interrupted by new interrupt
+however, we can disable interrut using x96 instruction cli
+
+interrupt number -> IDT entry index 0 - 21 used by x86, 22 - 31 reserved, 32 - 255 system programmers can use
+
+IDTR (similar to GDTR): lidt means load IDT
