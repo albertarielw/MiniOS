@@ -20,7 +20,18 @@ start:
     ; 0000 is the offset we have specified in the register bx in load_kernel_from_disk before calling 02h:13h
     jmp 0900h:0000
 
+; BIOS service 13h:02h loads the required sector into the memory address es:bx
+; So, the value 0900h which has been set to es in the code above will be the starting memory address of the kernel
+; Previously, it was enough to set bx = 0 since we only load 1 sector -> the code will reside from offset 0 to 511
+; Now we are loading > 1 sector so we need to increment bx
 load_kernel_from_disk:
+    ; increment bx by 1 sector to load the next sector
+    mov ax, [curr_sector_to_load]
+    sub ax, 2
+    mov bx, 512d
+    mul bx
+    mov bx, ax
+
     mov ax, 0900h
     mov es, ax
 
@@ -35,7 +46,7 @@ load_kernel_from_disk:
     mov ch, 0h
 
     ; 02h is the sector number we would like to read (sector 2)
-    mov cl, 02h
+    mov cl, [curr_sector_to_load]
 
     ; 0h is the head number (of the disk)
     mov dh, 0h
@@ -46,12 +57,18 @@ load_kernel_from_disk:
 
     ; the value of bx is the memory address that the content will be loaded into
     ; we are reading one sector and the content will be stored on memory address 0h
-    mov bx, 0h
     int 13h
 
     ; when the content is loaded successfully, BIOS service 13h:02h set carry flag to 0, otherwise 1 and stores error code in ax
     ; if cf is 1 jc will jump
     jc load_kernel_from_disk
+
+    ; increment curr_sector_to_load, decrement number_of_sectors_to_load
+    sub byte [number_of_sectors_to_load], 1
+    add byte [curr_sector_to_load], 1
+    cmp byte [number_of_sectors_to_load], 0
+
+    jne load_kernel_from_disk
 
     ret
 
@@ -93,9 +110,11 @@ printing_finished:
 
     ret
 
-title_string        db  'The Bootloader of MiniOS Kernel.', 0
-message_string      db  'The Kernel is loading...', 0
-load_error_string   db  'The Kernel cannot be loaded', 0
+title_string                db  'The Bootloader of MiniOS Kernel.', 0
+message_string              db  'The Kernel is loading...', 0
+load_error_string           db  'The Kernel cannot be loaded', 0
+number_of_sectors_to_load   db  15d ; 7.5KB will be loaded to memory, if kernel > 7.5KB we can modify this
+curr_sector_to_load         db  2d  ; sector 1 contains bootloader, sector 2 is the start of kernel
 
 ; write the magic signature 0xAA55
 times 510-($-$$) db 0 ; pad with 0 so magic signature is at loc 510-511 (0-based)
