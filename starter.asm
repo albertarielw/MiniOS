@@ -58,3 +58,5 @@ init_video_mode:
 
     ret
 
+%include "gdt.asm"
+%include "idt.asm"
