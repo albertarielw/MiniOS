@@ -36,4 +36,25 @@ load_gdt:
 
     ret
 
+enter_protected_mode:
+    ; x86 has cr0-cr7 control register
+    mov eax, cr0
+    or eax, 1
+    ; last bit of cr0 -> 0: disable protected mode, 1: enable protected mode
+    mov cr0, eax
+
+; cannot use BIOS to print to screen anymore, so we need to use vga
+init_video_mode:
+    ; call BIOS service 10h:0h to set video mode to number passed in register al
+    mov ah, 0h
+    ; 03h -> text mode with 16 colors, 13h is graphic mode with 256 colors
+    mov al, 03h
+    int 10h
+
+    ; call BIOS service 10h:01h to disable text cursor
+    mov ah, 01h
+    mov cx, 2000h
+    int 10h
+
+    ret
 
