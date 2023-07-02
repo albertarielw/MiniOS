@@ -10,6 +10,7 @@
 bits 16 
 ; extern tells NASM that there is a function/ variable define outside this code, it will be figured out by the linker
 extern interrupt_handler
+extern kernel_main
 
 start:
 	mov ax, cs ; set proper memory address of ds depending on the value of cs
