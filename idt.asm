@@ -1,3 +1,5 @@
+extern interrupt_handler
+
 isr_0:
     cli
     ; push number of current interrupt into the stack
