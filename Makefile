@@ -1,22 +1,18 @@
 ASM = nasm
+CC = gcc
+BOOTSTRAP_FILE = bootstrap.asm 
+INIT_KERNEL_FILES = starter.asm
+KERNEL_FILES = main.c
+KERNEL_FLAGS = -Wall -m32 -c -ffreestanding -fno-asynchronous-unwind-tables -fno-pie
+KERNEL_OBJECT = -o kernel.elf
 
-SRC = src
-BUILD = build
-
-BOOTSTRAP_FILE = $(SRC)/bootstrap.asm
-KERNEL_FILE = $(SRC)/simple_kernel.asm
-
-.PHONY: all build clean
-
-build: $(BOOTSTRAP_FILE) $(KERNEL_FILE) create_build_folder
-	$(ASM) -f bin $(BOOTSTRAP_FILE) -o $(BUILD)/bootstrap.o
-	$(ASM) -f bin $(KERNEL_FILE) -o $(BUILD)/kernel.o
-	dd if=$(BUILD)/bootstrap.o of=$(BUILD)/kernel.img
-	dd seek=1 conv=sync if=$(BUILD)/kernel.o of=$(BUILD)/kernel.img bs=512
-	qemu-system-x86_64 -s $(BUILD)/kernel.img
-
-create_build_folder:
-	@mkdir -p build
-
-clean:
-	rm -f $(BUILD)/*.o $(BUILD)/*.img
+build: $(BOOTSTRAP_FILE) $(KERNEL_FILE)
+	$(ASM) -f bin $(BOOTSTRAP_FILE) -o bootstrap.o
+	$(ASM) -f elf32 $(INIT_KERNEL_FILES) -o starter.o 
+	$(CC) $(KERNEL_FLAGS) $(KERNEL_FILES) $(KERNEL_OBJECT)
+	ld -Tlinker.ld starter.o kernel.elf -o 539kernel.elf
+	objcopy -O binary 539kernel.elf 539kernel.bin
+	dd if=bootstrap.o of=kernel.img
+	dd seek=1 conv=sync if=539kernel.bin of=kernel.img bs=512 count=5
+	dd seek=6 conv=sync if=/dev/zero of=kernel.img bs=512 count=2046
+	qemu-system-x86_64 -s kernel.img
