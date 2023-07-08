@@ -110,7 +110,7 @@ printing_finished:
 
 	ret
 
-title_string        db  'The Bootloader of 539kernel.', 0
+title_string        db  'The Bootloader of MiniOS.', 0
 message_string      db  'The kernel is loading...', 0
 load_error_string   db  'The kernel cannot be loaded', 0
 number_of_sectors_to_load 	db 	10d ; 7.5KB will be loaded to memory, if kernel > 7.5KB we can modify this
