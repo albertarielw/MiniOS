@@ -136,5 +136,5 @@ start_kernel:
 	
 	call kernel_main
 	
-%include "gdt.asm"
-%include "idt.asm"
+%include "src/gdt.asm"
+%include "src/idt.asm"
