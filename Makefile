@@ -1,5 +1,9 @@
 ASM = nasm
 CC = gcc
+
+SRC_DIR = src
+BUILD_DIR = build
+
 BOOTSTRAP_FILE = bootstrap.asm 
 INIT_KERNEL_FILES = starter.asm
 KERNEL_FILES = main.c
