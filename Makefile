@@ -16,3 +16,4 @@ build: $(BOOTSTRAP_FILE) $(KERNEL_FILE)
 	dd seek=1 conv=sync if=minios.bin of=kernel.img bs=512 count=5
 	dd seek=6 conv=sync if=/dev/zero of=kernel.img bs=512 count=2046
 	qemu-system-x86_64 -s kernel.img
+
