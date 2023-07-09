@@ -23,7 +23,7 @@ build: $(SRC_DIR)/$(BOOTSTRAP_FILE) $(BUILD_DIR)/$(KERNEL_FILE)
 	dd seek=6 conv=sync if=/dev/zero of=$(BUILD_DIR)/kernel.img bs=512 count=2046
 
 run:
-	qemu-system-x86_64 -s kernel.img
+	qemu-system-x86_64 -s $(BUILD_DIR)/kernel.img
 
 clean:
 	rm -rf $(BUILD_DIR)/*.o $(BUILD_DIR)/*.img $(BUILD_DIR)/*.bin $(BUILD_DIR)/*.elf
