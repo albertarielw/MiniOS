@@ -60,4 +60,3 @@ Method 2: call or jump to task gate. Task gate descriptor can be defined in a ta
 3. Scheduer + system timer's interrupt -> to enforce pre emptive multitasking, round robin algo
 
 4. Create number of dummy process to test
-

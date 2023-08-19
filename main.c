@@ -45,46 +45,34 @@ void interrupt_handler( int interrupt_number )
 	printi( interrupt_number );
 }
 
-// iterates through character in a string until \0 is found
-// for each character, figures out the right position to print (based on memory location) and print it onto screen
-void print( char *str )
+void processA()
 {
-	int currCharLocationInVidMem, currColorLocationInVidMem;
-	
-	while ( *str != '\0' )
-	{
-        currCharLocationInVidMem = nextTextPos * 2;
-		currColorLocationInVidMem = currCharLocationInVidMem + 1;
-		
-		video[ currCharLocationInVidMem ] = *str;
-		video[ currColorLocationInVidMem ] = 15;
-		
-		nextTextPos++;
-		
-		str++;
-	}
+    print( "Process A," );
+
+    while ( 1 )
+        asm( "mov $5390, %eax" );
 }
 
-void println()
+void processB()
 {
-	nextTextPos = ++currLine * 80; // because the screen width in 03h is 80
+    print( "Process B," );
+
+    while ( 1 )
+        asm( "mov $5391, %eax" );
 }
 
-void printi( int number )
+void processC()
 {
-	char* digitToStr[] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-	
-	if ( number >= 0 && number <= 9 )
-	{
-		print( digitToStr[ number ] );
-		return;
-	}
-	else
-	{
-		int remaining = number % 10;
-		number = number / 10;
-		
-		printi( number );
-		printi( remaining );
-	}
+    print( "Process C," );
+
+    while ( 1 )
+        asm( "mov $5392, %eax" );
+}
+
+void processD()
+{
+    print( "Process D," );
+
+    while ( 1 )
+        asm( "mov $5393, %eax" );
 }
