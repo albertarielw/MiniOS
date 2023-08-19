@@ -9,8 +9,11 @@
 ; in the bootloader don't need to do this because: for flat binary the default is 16 bit but we use ELF32
 bits 16 
 ; extern tells NASM that there is a function/ variable define outside this code, it will be figured out by the linker
-extern interrupt_handler
 extern kernel_main
+extern interrupt_handler
+extern scheduler
+extern run_next_process
+
 
 start:
 	mov ax, cs ; set proper memory address of ds depending on the value of cs
