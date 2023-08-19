@@ -20,6 +20,7 @@ start:
 	call init_video_mode
 	call enter_protected_mode
     call setup_interrupts
+	call load_task_register
 	
 	call 08h:start_kernel
 	
@@ -120,6 +121,13 @@ remap_pic:
 load_idt:
 	lidt [idtr - start]
 	ret
+
+; load task register with the proper value
+load_task_register:
+	mov ax, 40d ; 40 = entry 6 * 8 bytes - 8 (since indexing starts from 0)
+	ltr ax
+
+	ret
 	
 bits 32
 start_kernel:
@@ -138,3 +146,7 @@ start_kernel:
 	
 %include "gdt.asm"
 %include "idt.asm"
+
+; TSS is a region in memory (since it is a segment) -> allocate this region of memory
+tss:
+	dd 0
