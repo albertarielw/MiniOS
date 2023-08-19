@@ -162,9 +162,58 @@ isr_31:
 	jmp isr_basic
 	
 isr_32:
-	cli
-	push 32
-	jmp irq_basic
+	; part 1
+
+	cli ; step 1 disable interrupt (when handling interrupt, btetter to not receive any other interrupt)
+	
+	; step 2 and 3
+	; when this interrupt handler is called, context of the processor is the context of suspended process
+	; we define ISRs gate descriptors as interrupt gates in IDT 
+	; -> if we define as task gates, the context of the suspended gates in the IDT table will not be available directly on processor's registers
+	
+	; since context is reachable, we store in the stack (useful when scheduler needs to copy the context of the suspended process to the memory)
+	; push into the stack also provides 2 benefits
+	; 1. we can use register in current code as we wont lose the suspended process context
+	; 2. method of passing parameters
+	
+	pusha ; step 2 pusha pushes values of all general registers in the order: EAX, ECX, EDX, EBX, ESP, EBP, ESI and EDI
+
+
+	; step 3 to push EIP
+
+	; Curr EIP is a pointer to curr instruction, not the one we want to suspend
+	
+	; Suppose A is running
+	; We want to suspend A, so ISR32 is called
+	; Return address to where A suspended is stored at the top of the stack (based on calling convention)
+	; Then we run ISR32
+	; At this point, ISR32 has put 8 registers to the stack (because of pusha)
+	; ESP points to top of stack, to find return address of A (EIP of A) simply use esp + 32
+	mov eax, [esp + 32]
+	push eax
+
+	call scheduler ; step 4 
+
+	; ... ;
+
+	; part 2
+
+	; step 5
+
+	; after scheduler, tell PIC we finish handling IRQ by send end of interrupt command to PIC
+	mov al, 0x20
+	out 0x20, al
+	
+	; step 6
+
+	; jump to memory address in which the selected process were suspended
+	; exploit calling convention again
+
+	; remove all values added to stack by adding 40 (8 general register + EIP + 4 to get to the start of return address added)
+	add esp, 40d
+	push run_next_process
+
+	iret ; step 7
 	
 isr_33:
 	cli
