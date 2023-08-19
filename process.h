@@ -32,10 +32,9 @@ typedef struct process
     int *base_address; // when kernel intend to run a process for the first time, jump to base_address
 } process_t;
 
-process_t *processes[ 15 ];
-
-int processes_count; // number of process -> for modulo in round robin
-int curr_pid;
+extern process_t *processes[15];
+extern int processes_count; // number of process -> for modulo in round robin
+extern int curr_pid;
 
 void process_init();
 void process_create( int *, process_t * ); // params: pointer to base address of process, pointer to PCB

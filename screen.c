@@ -1,5 +1,9 @@
 #include "screen.h"
 
+volatile unsigned char *video;
+int nextTextPos;
+int currLine;
+
 void screen_init() {
     video = 0xB8000;
     nextTextPos = 0;

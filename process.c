@@ -1,5 +1,8 @@
 #include "process.h"
 
+process_t *processes[15];
+int processes_count, curr_pid;
+
 void process_init()
 {
     processes_count = 0;

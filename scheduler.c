@@ -1,5 +1,8 @@
 #include "scheduler.h"
 
+int next_sch_pid, curr_sch_pid;
+process_t *next_process;
+
 void scheduler_init()
 {
     next_sch_pid = 0;

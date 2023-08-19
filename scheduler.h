@@ -8,13 +8,16 @@ Implementation:
 choose next process -> context switch -> update PCB -> jump to process code 
 */
 
+#ifndef SCHEDULER_H
+#define SCHEDULER_H
+
 #include "process.h"
 
-int next_sch_pid, curr_sch_pid;
+extern int next_sch_pid, curr_sch_pid;
+extern process_t *next_process;
 
-process_t *next_process; // reference to the PCB of the next process
-
-void scheduler_init(); // initialize values of the global variables
-process_t *get_next_process();
-void scheduler( int, int, int, int, int, int, int, int, int ); // 
+void scheduler_init();
+void scheduler(int eip, int edi, int esi, int ebp, int esp, int ebx, int edx, int ecx, int eax);
 void run_next_process();
+
+#endif // SCHEDULER_H

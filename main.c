@@ -1,12 +1,10 @@
 #include "screen.h"
-
 /*
 There are two VGA modes: text and grapics
 To show on screen, entities (pixel or char) should be loaded to video memory (a part of main memory)
 In text mode, starting address of video memory is b8000h (this is phyiscal memory). Width: 80, Height: 25
 In graphics mode, starting address is a0000h. Width: 320, Height: 200
 */
-#include "screen.h"
 #include "scheduler.h"
 
 void processA();

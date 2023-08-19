@@ -1,9 +1,10 @@
-volatile unsigned char *video;
+extern volatile unsigned char *video;
 
-int nextTextPos;
-int currLine;
+extern int nextTextPos;
+extern int currLine;
 
 void screen_init();
 void print( char * );
 void println();
 void printi( int );
+void cls();
