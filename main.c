@@ -19,15 +19,11 @@ void kernel_main()
 {	
 	process_t p1, p2, p3, p4;
 	
-	// ... //
-	
 	heap_init();
 	paging_init();	
 	screen_init();
 	process_init();
 	scheduler_init();
-	
-	// ... //
 	
     // video[0] = 'A';
     // video[2] = 'B' why not video[1]? this is because the byte after char contains color information
@@ -36,8 +32,6 @@ void kernel_main()
 	println();
 	print( "We are now in Protected-mode" );
 	println();
-	
-	// ... //
 	
 	process_create( &processA );
 	process_create( &processB );

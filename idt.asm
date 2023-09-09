@@ -1,5 +1,6 @@
 isr_0:
 	cli
+	; push number of current interrupt into the stack
 	push 0
 	jmp isr_basic
 
@@ -294,9 +295,10 @@ isr_48:
 	jmp irq_basic
 
 isr_basic:
-;	cli
+	; call C function interrput_handler
 	call interrupt_handler
 	
+	; clean stack frame: pop stack frame and save popped value in eax (chosen arbitrarily)
 	pop eax
 	sti
 	iret
@@ -321,6 +323,7 @@ irq_basic:
 	
 ; The value of the flags from Basekernel (kernelcode.S) (https://github.com/dthain/basekernel)
 idt:
+	; handler_name, segment_selector, present, privilege_level, descriptor_size, gate_type (in this case interrupt)
 	dw isr_0, 8, 0x8e00, 0x0000
 	dw isr_1, 8, 0x8e00, 0x0000
 	dw isr_2, 8, 0x8e00, 0x0000
