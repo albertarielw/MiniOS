@@ -112,3 +112,12 @@ Entry of page table -> exactly the same as entry of page directory, its size is 
 Some diff:
 - Bit 7: ignored (used to decide page size in page directory)
 - Bit 6: dirty bit (ignored in page directory) -> indicate we need to change, this is old entry -> because we don't delete old entry just set dirty bit to 1 (1: is dirty 0: is not dirty)
+
+## Implementing Memory Management
+
+We need memory managemetn so we can allocate memory dynammically
+
+Paging:
+- valid page directory should be initialized, its address should be loaded in the register CR3
+- paging should be enabled by modfying the value of CR0 -> tell processor to start using paging and translate linear address (instead of interpreting linear address as physical address)
+- We need to implement paging for each process, but here we only implement paging for kernel

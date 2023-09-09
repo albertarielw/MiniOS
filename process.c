@@ -9,8 +9,9 @@ void process_init()
 	curr_pid = 0;
 }
 
-void process_create( int *base_address, process_t *process )
+process_t *process_create( int *base_address) 
 {	
+	process_t *process = kalloc(sizeof(process_t));
   // new id is assigned to new process
 	process->pid = curr_pid++; 
 	// initialize context 

@@ -1,5 +1,8 @@
+#include "heap.h"
+#include "paging.h"
 #include "screen.h"
 #include "scheduler.h"
+
 /*
 There are two VGA modes: text and grapics
 To show on screen, entities (pixel or char) should be loaded to video memory (a part of main memory)
@@ -18,6 +21,8 @@ void kernel_main()
 	
 	// ... //
 	
+	heap_init();
+	paging_init();	
 	screen_init();
 	process_init();
 	scheduler_init();
@@ -34,10 +39,10 @@ void kernel_main()
 	
 	// ... //
 	
-	process_create( &processA, &p1 );
-	process_create( &processB, &p2 );
-	process_create( &processC, &p3 );
-	process_create( &processD, &p4 );
+	process_create( &processA );
+	process_create( &processB );
+	process_create( &processC );
+	process_create( &processD );
 	
 	asm( "sti" );
 	

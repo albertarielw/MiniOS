@@ -1,19 +1,12 @@
-; runs in 16 bits
-; to prepare proper environment for main kernel by: 
-; - init and load GDT 
-; - set interrupts 
-; - set video mode
-; - change 16 bit real mode to 32 bit protected mode
-
-; tell NASM to generate 16 bit code since we will be using 16 bit real mode
-; in the bootloader don't need to do this because: for flat binary the default is 16 bit but we use ELF32
-bits 16 
-; extern tells NASM that there is a function/ variable define outside this code, it will be figured out by the linker
-
+bits 16
 extern kernel_main
 extern interrupt_handler
 extern scheduler
 extern run_next_process
+extern page_directory
+
+global load_page_directory
+global enable_paging
 
 start:
 	mov ax, cs
@@ -127,6 +120,19 @@ load_task_register:
 	ret
 	
 bits 32
+load_page_directory:
+	mov eax, [page_directory]
+	mov cr3, eax
+	
+	ret
+	
+enable_paging:
+	mov eax, cr0
+	or eax, 80000000h
+	mov cr0, eax
+	
+	ret
+
 start_kernel:
 	mov eax, 10h
 	mov ds, eax
