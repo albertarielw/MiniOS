@@ -115,6 +115,7 @@ Some diff:
 
 ## Implementing Memory Management
 
+Basics:
 We need memory managemetn so we can allocate memory dynammically
 
 Paging:
