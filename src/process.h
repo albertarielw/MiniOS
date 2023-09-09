@@ -37,4 +37,4 @@ extern int processes_count; // number of process -> for modulo in round robin
 extern int curr_pid;
 
 void process_init();
-void process_create( int *, process_t * ); // params: pointer to base address of process, pointer to PCB
+process_t *process_create( int * ); // params: pointer to base address of process, pointer to PCB

@@ -1,0 +1,451 @@
+commit f929627cab69620f2ae9b39fd6edaf839daee4a1
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sun Aug 20 12:06:01 2023 +0800
+
+    feat: add content about memory management
+
+commit ff0a5e5465bb5aabc27a9350a38778a09d6939ef
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sun Aug 20 01:25:46 2023 +0800
+
+    fix: add correct screenshot for v3
+
+commit b606e5c9e2a01b4ca0e0dd2d7900094e43756299
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sun Aug 20 00:26:10 2023 +0800
+
+    feat: add missing files
+
+commit 7d36caaa51c0695cdd1dd9013d7b8267ffe0f353
+Merge: 47d071f f2a8179
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sun Aug 20 00:24:59 2023 +0800
+
+    merge: v3
+
+commit 47d071fecd9f7b05bbfeba6c7923abb37925cfe0
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sun Aug 20 00:21:51 2023 +0800
+
+    chore: remove old file
+
+commit f2a8179f244be4fc0d406ed2a7d04f02462e1eb5
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sat Aug 19 23:59:18 2023 +0800
+
+    chore: remove useless files
+
+commit 84cd6af038601991f0a515c1346da1d205523b0e
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sat Aug 19 23:55:10 2023 +0800
+
+    fix: printed char not printing to screen
+
+commit 8f3f3060276bdc525f3291dbf831ed4e7bcd0265
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sat Aug 19 22:37:12 2023 +0800
+
+    fix: linker multiple definition error
+
+commit ec150ddfd21d2784d227a0e7fd5cef2c28ef18a5
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sat Aug 19 22:07:21 2023 +0800
+
+    feat: update makefile
+
+commit f67420109a692e9e5b749e01141970701a677a17
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sat Aug 19 22:06:31 2023 +0800
+
+    feat: add dummy processes, move screen related functions from main.c to screen.c
+
+commit 278b8bd72dc47e1e44999b8d536ace0a21305fc6
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sat Aug 19 22:02:02 2023 +0800
+
+    feat: interrupt for process scheduling
+
+commit 50522bc12359c6f48151c89061dc7e447f2a1998
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sat Aug 19 21:21:26 2023 +0800
+
+    feat: add scheduler and run_next_process to starter.asm
+
+commit 9adc08718e5d395bbdd6baf1c2e33e978b067d75
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sat Aug 19 21:13:41 2023 +0800
+
+    feat: add process scheduler implementation
+
+commit 4656a3f1dbda60656b55410e4943b75e5c62f0e6
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sat Aug 19 19:34:03 2023 +0800
+
+    feat: adds abstaction for processes
+
+commit 4b852836a3d1bffaba0c7a8c30eaa8a56d72f19e
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sat Aug 19 15:52:27 2023 +0800
+
+    feat: separate screen initialization logic
+
+commit b07140eb137fd9a1b199432691c3958cedf0ce2c
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sat Aug 19 15:50:18 2023 +0800
+
+    feat: add notes on how to implement process management
+
+commit 3165109ea675205d63916e0cfc47ac5089a4abcf
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sat Aug 19 15:43:59 2023 +0800
+
+    feat: add notes on how to implement process management
+
+commit 21e81d539c6ea886fc1871f1971f5c06afdd3140
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sat Aug 19 00:38:48 2023 +0800
+
+    feat: separate build and run from makefile, add screenshot for v2
+
+commit 3dd54ec631e5bf08bfa3ba8f7117cbd4af4b8174
+Author: Albert Ariel Widiaatmaja <albertariel2002@gmail.com>
+Date:   Sat Aug 19 00:26:00 2023 +0800
+
+    feat: separate makefile processes into smaller parts
+
+commit fd7e984fd675677884d77bed2c990b68d8b57887
+Merge: 9f8bbe9 9721f24
+Author: Albert Ariel W <101498658+albertarielw@users.noreply.github.com>
+Date:   Sun Jul 9 19:06:20 2023 +0800
+
+    Merge pull request #10 from albertarielw/v2
+    
+    V2
+
+commit 9721f24fdd2c4e8513b5b169cb8c620203fe999e
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 9 19:05:43 2023 +0800
+
+    fix: makefile wrong folder for run
+
+commit 8e1d8d0cf3301483937ca664647faf35073cac2b
+Author: albertarielw <albertariel2002@gmail.com>
+Date:   Sun Jul 9 19:04:55 2023 +0800
+
+    feat: tidy up folder, update makefile
+
+commit 3eb3cd847fad20228cf995e5c050e79b816d110c
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 9 18:54:03 2023 +0800
+
+    feat: update make file
+
+commit 3726e3b214a40b199bd90c00cb53fd3eef14b4a1
+Author: albertarielw <albertariel2002@gmail.com>
+Date:   Sun Jul 9 15:42:19 2023 +0800
+
+    test: separate build
+
+commit ed10fc0116ad2a413ff997aed4d75e38e500b983
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 9 15:40:20 2023 +0800
+
+    test: compile
+
+commit b4939a8d24b3a289c7a5c4da0e7df1bad874bea2
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 9 15:39:13 2023 +0800
+
+    test: separate build into compile link run
+
+commit 41250207c475a98eda7ab0aa918a8b1837075d6e
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 9 15:31:20 2023 +0800
+
+    refactor: change string values
+
+commit 46358ea757fe008476c4b47a9389a611a8192181
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 9 01:32:14 2023 +0800
+
+    feat: adds screenshot of v2
+
+commit 9f8bbe9249662bd5646e2ad75935743293b9a117
+Merge: 922e4ac b6e83ff
+Author: Albert Ariel W <101498658+albertarielw@users.noreply.github.com>
+Date:   Sun Jul 9 01:29:58 2023 +0800
+
+    Merge pull request #9 from albertarielw/v2
+    
+    V2
+
+commit b6e83ff882753e5454ac75bc2cc959456bb92248
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 9 01:29:39 2023 +0800
+
+    fix: find out build issue, it is due to linker issue on mac, need to do linker on WSL
+
+commit 7afa4a005ea9125d7cdb529b98111ec6ca28b2c6
+Merge: 148dcd6 922e4ac
+Author: Albert Ariel W <101498658+albertarielw@users.noreply.github.com>
+Date:   Sun Jul 2 15:51:02 2023 +0800
+
+    Merge pull request #8 from albertarielw/main
+    
+    Synch with main
+
+commit 922e4acea2d36ec2b8db720e788bae763fafca5e
+Merge: 7471da3 148dcd6
+Author: Albert Ariel W <101498658+albertarielw@users.noreply.github.com>
+Date:   Sun Jul 2 15:43:02 2023 +0800
+
+    Merge pull request #7 from albertarielw/v2
+    
+    V2
+
+commit 148dcd6b5a286d48c6412a9604902800f58e8d66
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 2 14:51:33 2023 +0800
+
+    chore: tidy up folder
+
+commit 8b64bf491cd2fa5e0ba2dc4d2c231bd1b5d89d0c
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 2 14:51:00 2023 +0800
+
+    chore: remove build file
+
+commit e3a97faeaa613254e4da023f7a456db3f1f8996c
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 2 14:50:29 2023 +0800
+
+    update gitignore
+
+commit 74d3fef6e7d6879d4243b991a3e53c13249d6ab1
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 2 14:41:47 2023 +0800
+
+    fix: merge start_kernel.asm to starter.asm
+
+commit c607fb44c3317b82ad241c687cea4891dd4ec777
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 2 14:37:50 2023 +0800
+
+    fix: check main.c
+
+commit e9e52403be365a8a4041eaab18048c76e1a5bafe
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 2 14:35:45 2023 +0800
+
+    fix: check gdt.asm
+
+commit 65c15dbccb1ef44f53406354af9c902783d282be
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 2 14:34:49 2023 +0800
+
+    fix: check bootstrap logic
+
+commit c9b34442267c6e05845d2fdfe4dc42f282217c48
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 2 14:28:52 2023 +0800
+
+    chore: tidy up makefile
+
+commit 22b21d4e5e52d188201a9c2f24e9bb0f6b53cf46
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 2 14:26:27 2023 +0800
+
+    feat: setup interrupt handler
+
+commit b5d71721c10304dbda785b592efedd87dfe81e24
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 2 03:16:06 2023 +0800
+
+    feat: adds basic main_kernel in C which prints text to string
+
+commit 187d670f033d952a1f791d8e1346c35c83e8b066
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 2 02:16:50 2023 +0800
+
+    feat: adds start_kernel to intialize segment registers and call main kernel, include start_kernel and gdt in starter
+
+commit e3bae2ede2d5fa32392dbe68cf8d8bfd6199913f
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 2 02:13:05 2023 +0800
+
+    chore: adds comments for gdt
+
+commit ad96d5341fdab7f0f6f52c084f8e8f7320a9b36e
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 2 02:06:06 2023 +0800
+
+    feat: adds init video mode
+
+commit b11462ff057d3225f16e05d5375d9b501b8fed33
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 2 01:05:16 2023 +0800
+
+    feat: adds gdt descriptor and routine to enter protected mode
+
+commit a6bbb423969c1411c9a8f4fda17ac4aa01fb04ac
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jul 2 00:38:24 2023 +0800
+
+    feat: adds load_gdt
+
+commit 9653820e92593d1444e4f6b29e8e7ce8ff2da44f
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sat Jul 1 21:10:00 2023 +0800
+
+    feat: update bootstrap to load >1 sector from the disk to memory
+
+commit 79aa6194efa87964d3ebea276432b306f48c0b4b
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sat Jul 1 20:43:35 2023 +0800
+
+    feat: update makefile
+
+commit ab0a08d3d4e3771970175d238ee8c3f12b1f1a50
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sat Jul 1 20:34:15 2023 +0800
+
+    feat: updates makefile and adds linker file
+
+commit c75fc70400d51009cced1d15c1a65d41ff8a31b7
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sat Jul 1 19:48:29 2023 +0800
+
+    feat: adds note about intro to progenitor os
+
+commit 7471da301439f0a2eeb24ee6114251d3e5e618bf
+Merge: 8d7bca7 1fa3b34
+Author: Albert Ariel W <101498658+albertarielw@users.noreply.github.com>
+Date:   Sat Jul 1 12:55:48 2023 +0800
+
+    Merge pull request #6 from albertarielw/v2
+    
+    V2
+
+commit 8d7bca76f1a6fe2437df27f6cd9a2deb3e19e248
+Merge: c072de5 5cb3f13
+Author: Albert Ariel W <101498658+albertarielw@users.noreply.github.com>
+Date:   Sat Jul 1 12:54:57 2023 +0800
+
+    Merge pull request #5 from albertarielw/revert-4-v2
+    
+    Revert "V2.1"
+
+commit 5cb3f13f9744ed6657171256ef3cbeb82401a76c
+Author: Albert Ariel W <101498658+albertarielw@users.noreply.github.com>
+Date:   Sat Jul 1 12:54:45 2023 +0800
+
+    Revert "V2.1 (#4)"
+    
+    This reverts commit c072de50f3afe779d439a172d938dcb32493a0ff.
+
+commit c072de50f3afe779d439a172d938dcb32493a0ff
+Author: Albert Ariel W <101498658+albertarielw@users.noreply.github.com>
+Date:   Sat Jul 1 12:54:13 2023 +0800
+
+    V2.1 (#4)
+    
+    * feat: adds notes until page 54
+    
+    * feat: adds notes until x86 segmentation
+    
+    * feat: adds notes about run-time stack and interrupts
+    
+    * feat: adds more content to x86 run time stack and interrupt, finish summary of x86 architecture
+    
+    ---------
+    
+    Co-authored-by: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+
+commit 1fa3b34c1f3a98c3670c3b0f44f810b1204e3a5f
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sat Jul 1 12:52:47 2023 +0800
+
+    feat: adds more content to x86 run time stack and interrupt, finish summary of x86 architecture
+
+commit bf4674a7ec906d45df27d2f82a8b11a029dae2b3
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sat Jul 1 01:51:15 2023 +0800
+
+    feat: adds notes about run-time stack and interrupts
+
+commit 9a4d101282bb1d2f92b6ee7a029069554afab3e7
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Fri Jun 30 01:50:11 2023 +0800
+
+    feat: adds notes until x86 segmentation
+
+commit 504e58eb9fd725be07f4732c711b5495c4a06d8d
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Fri Jun 30 01:13:13 2023 +0800
+
+    feat: adds notes until page 54
+
+commit 1001dd4667167f1b3953b4c8b998f3fa91c6a032
+Author: Albert Ariel W <101498658+albertarielw@users.noreply.github.com>
+Date:   Sun Jun 25 22:57:02 2023 +0800
+
+    feat: added learning notes related to v1 (#3)
+    
+    Co-authored-by: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+
+commit d3bde8cecdb8c35a0f00874a4d97009252ba6689
+Merge: 984352e 0e43e6c
+Author: Albert Ariel W <101498658+albertarielw@users.noreply.github.com>
+Date:   Sun Jun 25 11:31:39 2023 +0800
+
+    Merge pull request #1 from albertarielw/v1
+    
+    V1
+
+commit 0e43e6caa0d2f455b6455dc0a95cfe5281c01ad3
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jun 25 11:30:27 2023 +0800
+
+    update: change makefile to clean files in build directory instead of current directory
+
+commit b91b4e77b2dbd547a0fd2f18dee5218b26cb17ff
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jun 25 11:25:16 2023 +0800
+
+    enhancement: update gitignore to ignore build folder and everything in it including subdirectories
+
+commit 842c47954540deeaa358f94c91dd573eee969aa8
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jun 25 11:22:28 2023 +0800
+
+    feat: adds gitignore to ignore build files
+
+commit d21d70666691c2b81179d3fdfec437729b05eafa
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jun 25 11:21:25 2023 +0800
+
+    chore: remove build up from repo
+
+commit a681eed83c6d885bf9d4afed4210bab240a6142e
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sun Jun 25 11:20:42 2023 +0800
+
+    enhancement: tody up make file to separate src and build
+
+commit 67cef3a1046c54127c3179310239353b37316c63
+Author: Albert Ariel Widiaatmaja <albertarielwidiaatmaja@Alberts-MacBook-Pro.local>
+Date:   Sat Jun 24 22:07:51 2023 +0800
+
+    feat: basic os which says hello world
+
+commit 984352e4d83c8f6994f36326482993ecbe5d8ba6
+Author: Albert Ariel W <101498658+albertarielw@users.noreply.github.com>
+Date:   Sat Jun 24 18:12:04 2023 +0800
+
+    Update README.md
+
+commit 0f6d74fe39474c8fab489520171fe8731c59cae2
+Author: Albert Ariel W <101498658+albertarielw@users.noreply.github.com>
+Date:   Fri Jun 23 19:03:13 2023 +0800
+
+    Initial commit
